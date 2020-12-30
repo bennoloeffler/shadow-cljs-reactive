@@ -1,3 +1,48 @@
+:root {
+  --b-radius: 10px;
+  --k-color: white;
+}
+
 body {
-  color: green;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 150%;
+}
+
+input {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 80%;
+}
+
+div {
+  color: rgb(78, 78, 78);
+}
+
+.akey {
+  color: var(--k-color);
+  background-color: rgb(160, 160, 160);
+  width: 30px;
+  height: 30px;
+  line-height: 30px;       /* center: The same as your div height */
+  text-align: center;
+  border-radius: var(--b-radius);
+}
+
+.key0 {
+  color: var(--k-color);
+  background-color: rgb(160, 160, 160);
+  line-height: 30px;       /* center: The same as your div height */
+  text-align: left;
+  padding-left: 10px;
+  border-radius: var(--b-radius);
+}
+
+.display {
+  color: rgb(90, 90, 90);
+  background-color: lightgray;
+  width: 115px;
+  height: 30px; padding-left: 10px;
+  line-height: 30px;       
+  text-align: right;
+  padding-right: 10px;
+  border-radius: var(--b-radius); 
 }

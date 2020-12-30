@@ -2,10 +2,10 @@
 {:source-paths
  ["src"]
 
- :dependencies
- []
+ :dependencies [[reagent "1.0.0"]]
 
  :builds
+ 
  {:app {:target :browser
         :output-dir "public/js"
         :asset-path "/js"
@@ -17,5 +17,5 @@
         ;; start a development http server on http://localhost:8020
         :devtools
         {:http-root "public"
-         :http-port 8020}
-        }}}
+         :http-port 8020}}}}
+        

@@ -1,6 +1,6 @@
-# shadow-cljs - browser quickstart
+# BELs shadow-cljs / reagent - browser quickstart and examples
 
-This is a minimum template you can use as the basis for CLJS projects intended to run in the browser.
+This is a template you can use as the basis for CLJS reagent projects intended to run in the browser.
 
 ## Required Software
 
@@ -9,7 +9,8 @@ This is a minimum template you can use as the basis for CLJS projects intended t
 
 ## User Guide
 
-This repository only shows a basic example of how to get a basic Browser build.
+This repository only shows some basic examples / components.
+And it show how to get a basic Browser build.
 
 Please refer to the full [User Guide](https://shadow-cljs.github.io/docs/UsersGuide.html) for more information.
 
@@ -50,7 +51,7 @@ The app is only a very basic skeleton with the most useful development tools con
  ["src"] ;; .cljs files go here
 
  :dependencies
- [] ;; covered later
+ [[reagent "1.0.0"]] ;; just reagent
 
  :builds
  {:app {:target :browser
@@ -82,7 +83,7 @@ The last part is the actual `index.html` that is loaded when you open `http://lo
 <head><title>Browser Starter</title></head>
 <body>
 <h1>shadow-cljs - Browser</h1>
-<div id="app"></div>
+<div id="app-root"></div>
 
 <script src="/js/main.js"></script>
 <script>starter.browser.init();</script>
