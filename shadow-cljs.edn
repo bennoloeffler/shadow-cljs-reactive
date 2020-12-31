@@ -11,7 +11,7 @@
         :asset-path "/js"
 
         :modules
-        {:main ;; <- becomes public/js/main.js
+        {:server ;; <- becomes public/js/server.js
          {:entries [starter.browser]}}
 
         ;; start a development http server on http://localhost:8020
