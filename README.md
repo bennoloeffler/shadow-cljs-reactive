@@ -59,7 +59,7 @@ The app is only a very basic skeleton with the most useful development tools con
         :asset-path "/js"
 
         :modules
-        {:server ;; <- becomes public/js/server.js TO DEPLOY ON HEROKU (not related to shadow-cljs server)
+        {:main ;; <- becomes public/js/main.js
          {:entries [starter.browser]}}
 
         ;; start a development http server on http://localhost:8020
@@ -71,11 +71,11 @@ The app is only a very basic skeleton with the most useful development tools con
 
 It defines the `:app` build with the `:target` set to `:browser`. All output will be written to `public/js` which is a path relative to the project root (ie. the directory the `shadow-cljs.edn` config is in).
 
-`:modules` defines the how the output should be bundled together. For now we just want one file. The `:server` module will be written to `public/js/server.js`, it will include the code from the `:entries` and all their dependencies.
+`:modules` defines the how the output should be bundled together. For now we just want one file. The `:main` module will be written to `public/js/main.js`, it will include the code from the `:entries` and all their dependencies.
 
 `:devtools` configures some useful development things. The `http://localhost:8020` server we used earlier is controlled by the `:http-port` and serves the `:http-root` directory.
 
-The last part is the actual `index.html` that is loaded when you open `http://localhost:8020`. It loads the generated `/js/server.js` and then calls `start.browser.init` which we defined in the `src/start/browser.cljs`.
+The last part is the actual `index.html` that is loaded when you open `http://localhost:8020`. It loads the generated `/js/main.js` and then calls `start.browser.init` which we defined in the `src/start/browser.cljs`.
 
 ```html
 <!doctype html>
@@ -85,7 +85,7 @@ The last part is the actual `index.html` that is loaded when you open `http://lo
 <h1>shadow-cljs - Browser</h1>
 <div id="app-root"></div>
 
-<script src="/js/server.js"></script>
+<script src="/js/main.js"></script>
 <script>starter.browser.init();</script>
 </body>
 </html>
@@ -115,10 +115,10 @@ You can exit the REPL by either `CTRL+C` or typing `:repl/quit`.
 
 The `watch` process we started is all about development. It injects the code required for the REPL and the all other devtools but we do not want any of that when putting the code into "production" (ie. making it available publicly).
 
-The `release` action will remove all development code and run the code through the Closure Compiler to produce a minified `server.js` file. Since that will overwrite the file created by the `watch` we first need to stop that.
+The `release` action will remove all development code and run the code through the Closure Compiler to produce a minified `main.js` file. Since that will overwrite the file created by the `watch` we first need to stop that.
 
 Use `CTRL+C` to stop the `watch` process and instead run `npx shadow-cljs release app`.
 
 When done you can open `http://localhost:8020` and see the `release` build in action. At this point you would usually copy the `public` directory to the "production" web server.
 
-Note that in the default config we overwrote the `public/js/server.js` created by the `watch`. You can also configure a different path to use for release builds but writing the output to the same file means we do not have to change the `index.html` and test everything as is.
+Note that in the default config we overwrote the `public/js/main.js` created by the `watch`. You can also configure a different path to use for release builds but writing the output to the same file means we do not have to change the `index.html` and test everything as is.
