@@ -9,4 +9,3 @@
   [:div [:input {:type "button" :value "click!"
                  :on-click #(swap! counter inc)}]
    [:code " @counter"] " has value: " @counter])
-      

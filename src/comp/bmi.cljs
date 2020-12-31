@@ -55,4 +55,7 @@
      [:tbody
       [:tr [:td "cm"]  [:td [slider :cm 0 80 240 (:cm @state) :bmi]]]
       [:tr [:td "kg"]  [:td [slider :kg 1 20 200 (:kg @state) :bmi]]]
-      [:tr [:td "bmi"] [:td [slider :bmi 2 5 70 (:bmi @state) :kg]]]]]]))
+      [:tr [:td "bmi"] [:td [slider :bmi 2 5 70 (:bmi @state) :kg]]]]]
+    [:a {:href "https://gist.github.com/bennoloeffler/93bb1436229f6dcb8a843505615cee4b"} "source"]]))
+
+  

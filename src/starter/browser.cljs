@@ -5,20 +5,25 @@
    [comp.calculator :as calc]
    [comp.click-counter :as click]
    [comp.timer :as timer]
-   [comp.bmi :as bmi]))
+   [comp.bmi :as bmi]
+   [comp.file-viewer :as viewer]))
 
 (defn app []
-  [:<> 
+  [:<>
    [:div [calc/calc]]
    [:hr]
+   [:div [viewer/file-viewer "counter_example.txt"]]
    [:div [click/click-counter]] ;same atom!
    [:div [click/click-counter]] ;same atom!
    [:hr]
    [:div
+    [:div [viewer/file-viewer "timer_example.txt"]]
     [:div {:style {:float "left" :margin "20px"}} [timer/timer 0]] ;different atoms!
     [:div {:style {:float "left" :margin "20px"}} [timer/timer 10]]] ;different atoms!
    [:hr {:style {:clear "both"}}]
-   [:div [bmi/bmi]]])
+   [:div [bmi/bmi]]
+   [:hr]])
+
 
 (defn mount []
   (rd/render [app] (js/document.getElementById "app-root")))
